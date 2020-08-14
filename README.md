@@ -96,7 +96,7 @@ CREDIT_CARD use USD
     "invoice_list": [
         {
             "period": "2020-08-01",
-            "total_usd" = "32.12",
+            "total_usd" : "32.12",
             "icon_url_list": [
                 {"icon_url": "xxxx"},
                 {"icon_url": "yyyyy"},
