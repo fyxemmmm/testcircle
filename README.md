@@ -4,7 +4,8 @@
 - 请求方式: `post`
 - 请求地址: `/v2alpha/{type}/acquire_pre_amount`  
 type must be one of -->  USD | ANKR_ERC20  | USDT_ERC20  
-USD is payment of CREDIT_CARD, others mean token payment
+USD is payment of CREDIT_CARD, others mean token payment  
+CREDIT_CARD use USD
 - 请求参数:  
 ```json
 {
@@ -37,9 +38,9 @@ if you pay with USD / USDT , amount is always equal to usd
 {
     "team_id" : "",
     "card_id" : "",
-    "amount": "22.2",    "get from api /v2alpha/{type}/acquire_pre_amount"
-    "period": 12,    "month you buy"
-    "auto_renewal": 1     " if you need  auto_renewal, this value must be 1, otherwise it should be 0   自动续费设置成1"
+    "amount": "22.2",       "get from api /v2alpha/{type}/acquire_pre_amount"
+    "period": 12,           "month you buy"
+    "auto_renewal": 1       "if you need  auto_renewal, this value must be 1, otherwise it should be 0   自动续费设置成1"
 }
 ```
 
@@ -51,6 +52,36 @@ if you pay with USD / USDT , amount is always equal to usd
     "pre_pay_id": 12
 }
 pre_pay_id  is very important because it will be used soon
+```
+
+
+
+### CallBackAppInfo
+- 请求方式: `post`
+- 请求地址: `/v2alpha/{type}/callback_app_info`  
+type must be one of -->  USD | ANKR_ERC20  | USDT_ERC20  
+CREDIT_CARD use USD
+- 请求参数:  
+```json
+{
+    "app_id" : "",
+    "pre_pay_id" : 12,      "from api /v2alpha/teams/{team_id}/cards/{card_id}"
+    "cluster_id": "",      
+    "chart_name": "",        
+    "cpu_limit": 0,
+    "mem_limit": 0,
+    "storage_limit": 0,
+    "icon_url" : "",
+    "project_name"： ""
+}
+```
+
+- 响应内容:  
+```json
+{
+    "code": 0,
+    "message": "success"
+}
 ```
 
 
