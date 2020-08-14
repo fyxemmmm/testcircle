@@ -31,148 +31,26 @@ if you pay with USD / USDT , amount is always equal to usd
 
 ### create pre_card pay
 - 请求方式: `post`
-- 请求地址: `goods-specifications`
-- 请求参数:  
-```json
-
-```
-
-- 响应内容:  
-```json
-{
-    "code": 1,
-    "message": "success",
-    "info": ""
-}
-```
-
-
-### 规格更新
-- 请求方式: `post`
-- 请求地址: `goods-specification/update-sp`
+- 请求地址: `/v2alpha/teams/{team_id}/cards/{card_id}`
 - 请求参数:  
 ```json
 {
-	"goods_id": 1,
-	"main_specification_name": "颜色1",
-	"second_specification_name": "鞋码1",
-	"specification": [
-		{
-			"main_specification": "蓝色",
-			"second_specification": "37",
-			"purchasing_cost": 23
-		},
-		{
-			"main_specification": "蓝色",
-			"second_specification": "38",
-			"purchasing_cost": 24
-		},
-		{
-			"main_specification": "蓝色",
-			"second_specification": "39",
-			"purchasing_cost": 21
-		},
-		{
-			"main_specification": "绿色",
-			"second_specification": "37",
-			"purchasing_cost": 23
-		},
-		{
-			"main_specification": "绿色",
-			"second_specification": "42",
-			"purchasing_cost": 21
-		}
-	],
-	"pics": [
-		{
-			"main_specification": "蓝色",
-			"image_url": "https://www.baidu.com2"
-		},
-		{
-			"main_specification": "绿色",
-			"image_url": "https://www.baidu.com3"
-		}
-	]
+    "team_id" : "",
+    "card_id" : "",
+    "amount": "22.2",    get from api "/v2alpha/{type}/acquire_pre_amount"
+    "period": 12,    month you buy
+    "auto_renewal": 1      if you need  auto_renewal, this value must be 1, otherwise it should be 0   自动续费设置成1
 }
 ```
 
 - 响应内容:  
 ```json
 {
-    "code": 1,
+    "code": 0,
     "message": "success",
-    "info": ""
+    "pre_pay_id": 12
 }
+pre_pay_id  is very important because it will be used soon
 ```
 
-
-
-
-### 规格详情
-- 请求方式: `post`
-- 请求地址: `goods-specifications?goods_id=1`
-- 请求参数:  
-
-- 响应内容:  
-```json
-{
-    "code": 1,
-    "message": "success",
-    "info": {
-        "goods_id": "1",
-        "main_specification_name": "颜色",
-        "second_specification_name": "鞋码",
-        "specification": [
-            {
-                "main_specification": "蓝色",
-                "second_specification": "37",
-                "purchasing_cost": "23.00",
-                "original_cost": "33.41",   // 仅仅是展示用
-                "after_discount_cost": "26.06"  // 仅仅是展示用
-            },
-            {
-                "main_specification": "蓝色",
-                "second_specification": "38",
-                "image_url": "https://www.baidu.com1",
-                "purchasing_cost": "24.00",
-                "original_cost": "34.86",
-                "after_discount_cost": "27.19"
-            },
-            {
-                "main_specification": "蓝色",
-                "second_specification": "39",
-                "image_url": "https://www.baidu.com1",
-                "purchasing_cost": "21.00",
-                "original_cost": "30.51",
-                "after_discount_cost": "23.79"
-            },
-            {
-                "main_specification": "绿色",
-                "second_specification": "37",
-                "purchasing_cost": "23.00",
-                "original_cost": "33.41",
-                "after_discount_cost": "26.06"
-            },
-            {
-                "main_specification": "绿色",
-                "second_specification": "42",
-                "image_url": "https://www.baidu.com",
-                "purchasing_cost": "21.00",
-                "original_cost": "30.51",
-                "after_discount_cost": "23.79"
-            }
-        ],
-        "pics": [
-            {
-                "main_specification": "蓝色",
-                "image_url": "https://www.baidu.com1"
-            },
-            {
-                "main_specification": "绿色",
-                "image_url": "https://www.baidu.com"
-            }
-        ]
-    }
-}
-```
 
