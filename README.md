@@ -72,7 +72,7 @@ CREDIT_CARD use USD
     "mem_limit": 0,
     "storage_limit": 0,
     "icon_url" : "",
-    "project_name"： ""
+    "project_name": ""
 }
 ```
 
