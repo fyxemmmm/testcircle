@@ -37,9 +37,9 @@ if you pay with USD / USDT , amount is always equal to usd
 {
     "team_id" : "",
     "card_id" : "",
-    "amount": "22.2",    get from api "/v2alpha/{type}/acquire_pre_amount"
-    "period": 12,    month you buy
-    "auto_renewal": 1      if you need  auto_renewal, this value must be 1, otherwise it should be 0   自动续费设置成1
+    "amount": "22.2",    "get from api /v2alpha/{type}/acquire_pre_amount"
+    "period": 12,    "month you buy"
+    "auto_renewal": 1     " if you need  auto_renewal, this value must be 1, otherwise it should be 0   自动续费设置成1"
 }
 ```
 
