@@ -104,7 +104,7 @@ CREDIT_CARD use USD
             "info": [
                 {
                     "period":  "2020-08-01",
-                    "payment_method": "USD",    "if you use credit card, this is usd, other 2 enum --> USDT 、 ANKR"
+                    "payment_method": "USD",    "if you use credit card, this is usd, other 2 enum -->   ANKR_ERC20 USDT_ERC20"
                     "total_usd": "22.2",
                     "total_amount": "22.2",
                     "icon_url_list": [
@@ -118,4 +118,39 @@ CREDIT_CARD use USD
     ]
 }
 ```
+
+
+
+
+### GetPreInvoiceDetail
+- 请求方式: `get`
+- 请求地址: `/v2alpha/{team_id}/{pay_method}/{period}/invoice_detail`  
+for example  
+/v2alpha/{team_id}/CREDIT_CARD/2020-08-01/invoice_detail  
+/v2alpha/{team_id}/ANKR_ERC20/2020-07-01/invoice_detail  
+/v2alpha/{team_id}/USDT_ERC20/2020-08-01/invoice_detail  
+
+
+- 响应内容:  
+```json
+{
+    "total_amount": "22.3",
+    "total_usd": "22.3",        "if you use credit_card -> usd , total_amount is always equal to total usd"
+    "detail_list": [
+        {
+           "chart_name": "",
+           "cpu_limit": 0,
+           "mem_limit": 0,
+           "storage_limit": 0,
+           "amount": "12.3",
+           "usd": "12.3", 
+           "app_name":"",
+           "icon_url": "",
+           "app_start_time": "2020-08-01T08:00:00+08:00",
+           "app_end_time": "2020-09-01T08:00:00+08:00"
+       }
+    ]
+}
+```
+
 
