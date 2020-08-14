@@ -154,3 +154,42 @@ for example
 ```
 
 
+### GetRenewalList
+- 请求方式: `get`
+- 请求地址: `/v2alpha/{team_id}/get_renewal_list`  
+
+
+- 响应内容:  
+```json
+{
+    "prepayment_card_id": 12,
+    "app_start_time": "2020-08-01T08:00:00+08:00",
+    "app_end_time": "2020-09-01T08:00:00+08:00",
+    "amount": "33.3",
+    "auto_renewal": 1,    "1 means turn on the auto renewal"
+    "app_name": "",
+    "chart_name": "",
+    "period": 3        "here period is the same meaning as month"
+}
+```
+
+
+
+### EditAutoRenewalStatus
+- 请求方式: `post`
+- 请求地址: `/v2alpha/{team_id}/get_renewal_list`  
+
+- 请求参数:  
+```json
+{
+  "prepayment_card_id": 12,
+  "auto_renewal": "CANCEL"    "must be CANCEL or AUTO_RENEWAL"
+}
+```
+- 响应内容:  
+```json
+{
+    "code": 0,
+    "message": "success"
+}
+```
