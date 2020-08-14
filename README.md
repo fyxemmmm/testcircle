@@ -1,5 +1,32 @@
 ## pay2.0  
 
+
+participant web前端
+participant 支付服务
+participant app服务
+participant mysql serv
+participant mongodb serv
+participant stripe api
+
+web前端->>支付服务:post app规格信息和购买时长(月)
+#Note right of web前端:参数:月份
+支付服务->>web前端:amount(需要支付的总金额)
+web前端->>支付服务:post card_id、amount...
+支付服务-->stripe api:信用卡扣费
+stripe api-->支付服务:success
+支付服务-->mysql serv:record
+mysql serv-->支付服务:success
+支付服务->>web前端:付款唯一标识(pay_id)
+Note left of web前端:此时支付已成功
+web前端->>app服务:deploy app...
+app服务->>web前端:app_id
+web前端->>支付服务:post app_id pay_id
+支付服务-->mongodb serv:账单记录
+mongodb serv-->支付服务:success
+支付服务->>web前端:success
+Note right of web前端:finish
+
+
 ### GetPreAmount
 - 请求方式: `post`
 - 请求地址: `/v2alpha/{type}/acquire_pre_amount`  
