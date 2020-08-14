@@ -1,6 +1,6 @@
 ## pay2.0  
 
-### get amount which you need to deploy the app
+### GetPreAmount
 - 请求方式: `post`
 - 请求地址: `/v2alpha/{type}/acquire_pre_amount`  
 type must be one of -->  USD | ANKR_ERC20  | USDT_ERC20  
@@ -30,7 +30,7 @@ if you pay with USD / USDT , amount is always equal to usd
 
 
 
-### create pre_card pay
+### CreatePrePaymentCard
 - 请求方式: `post`
 - 请求地址: `/v2alpha/teams/{team_id}/cards/{card_id}`
 - 请求参数:  
@@ -84,4 +84,38 @@ CREDIT_CARD use USD
 }
 ```
 
+
+
+### GetPreInvoiceList
+- 请求方式: `get`
+- 请求地址: `/v2alpha/{team_id}/invoice_list`  
+
+- 响应内容:  
+```json
+{
+    "invoice_list": [
+        {
+            "period": "2020-08-01",
+            "total_usd" = "32.12",
+            "icon_url_list": [
+                {"icon_url": "xxxx"},
+                {"icon_url": "yyyyy"},
+            ],
+            "info": [
+                {
+                    "period":  "2020-08-01",
+                    "payment_method": "USD",    "if you use credit card, this is usd, other 2 enum --> USDT 、 ANKR"
+                    "total_usd": "22.2",
+                    "total_amount": "22.2",
+                    "icon_url_list": [
+                        {"icon_url": "xxxx"},
+                        {"icon_url": "yyyyy"}
+                    ]
+                }
+            ]
+        }
+    
+    ]
+}
+```
 
