@@ -2,7 +2,7 @@
 
 ### get amount which you need to deploy the app
 - 请求方式: `post`
-- 请求地址: `/v2alpha/{type}/acquire_pre_amount`
+- 请求地址: `/v2alpha/{type}/acquire_pre_amount`  
 type must be one of -->  USD | ANKR_ERC20  | USDT_ERC20
 USD is payment of CREDIT_CARD, others mean token payment
 - 请求参数:  
