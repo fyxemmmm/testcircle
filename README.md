@@ -7,6 +7,7 @@
 type must be one of -->  USD | ANKR_ERC20  | USDT_ERC20  
 USD is payment of CREDIT_CARD, others mean token payment  
 if you use CREDIT_CARD, then you should use USD
+just for user to have a look
 - 请求参数:  
 ```json
 {
@@ -39,9 +40,15 @@ if you pay with USD / USDT , amount is always equal to usd
 {
     "team_id" : "",
     "card_id" : "",
-    "amount": "22.2",       "get from api /v2alpha/{type}/acquire_pre_amount"
     "period": 12,           "month you buy"
-    "auto_renewal": 1       "if you need  auto_renewal, this value must be 1, otherwise it should be 0   自动续费设置成1"
+    "auto_renewal": 1,       "if you need  auto_renewal, this value must be 1, otherwise it should be 0   自动续费设置成1"
+    "cluster_id": "",
+    "chart_name": "",
+    "cpu_limit": 100,
+    "mem_limit": 100,
+    "storage_limit": 100,
+    "icon_url": "",
+    "project_name": ""
 }
 ```
 
@@ -65,15 +72,8 @@ CREDIT_CARD use USD
 - 请求参数:  
 ```json
 {
-    "app_id" : "",
+    "app_id" : "esadsafkjwj",
     "pre_pay_id" : 12,      "from api /v2alpha/teams/{team_id}/cards/{card_id}"
-    "cluster_id": "",      
-    "chart_name": "",        
-    "cpu_limit": 0,
-    "mem_limit": 0,
-    "storage_limit": 0,
-    "icon_url" : "",
-    "project_name": ""
 }
 ```
 
