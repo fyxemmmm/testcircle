@@ -150,3 +150,68 @@
 ```
 
 
+
+### PaymentList
+-  `get`
+-  `/v2alpha/{team_id}/pre_payment_list`  
+
+
+- response:  
+```json
+[
+    {
+        "period": "2020-09-01",
+        "total_usd": "33.33",
+        "app_list": [
+            {
+                "app_id": "app_idcxzcxcx",
+                "app_name": "myname",
+                "chart_name": "bonic",
+                "pay_method": "ANKR_ERC20",
+                "usd": "33.2",
+                "amount": "213",
+                "billing_time": 1598918400,
+                "icon_url": "http://www.icon.com"
+            },
+            {
+                "app_id": "app_idcxzcxcx",
+                "app_name": "myname",
+                "chart_name": "bonic",
+                "pay_method": "CREDIT_CARD",
+                "usd": "33.2",
+                "amount": "33.2",
+                "billing_time": 1598918400,
+                "icon_url": "http://www.icon.com"
+            }
+        ]
+    },
+    {
+        "period": "2020-08-01",
+        "total_usd": "33.33",
+        "app_list": [
+            {
+                "app_id": "app_idcxzcxcx",
+                "app_name": "myname",
+                "chart_name": "bonic",
+                "pay_method": "ANKR_ERC20",
+                "usd": "33.2",
+                "amount": "213",
+                "billing_time": 1598918400,
+                "icon_url": "http://www.icon.com"
+            },
+            {
+                "app_id": "app_idcxzcxcx",
+                "app_name": "myname",
+                "chart_name": "bonic",
+                "pay_method": "USDT_ERC20",
+                "usd": "33.2",
+                "amount": "213",
+                "billing_time": 1598918400,
+                "icon_url": "http://www.icon.com"
+            }
+        ]
+    }
+]
+```
+
+
