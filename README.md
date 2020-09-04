@@ -4,13 +4,14 @@
 ### CreateApp
 -  `post`
 -  `/v2alpha/app/v2/app`  
+-  pre_pay_info.pay_method must be one of "ANKR_ERC20 or USDT_ERC20"
 
-- 请求参数:  
+- request:  
 ```json
 {    
     "pre_pay_info": {
         "pay_method": "ANKR_ERC20",
-        
+        "period": 3
      },
     "name": "xyh421--boinc-5",
     "cluster_id": "cls-a91a7dbc-1a23-42f6-a66f-876094349f03",
@@ -51,14 +52,101 @@
     ]
 }
 ```
-- 响应内容:  
+- response:  
 ```json
-{
-   "amount": "33.3",
-   "usd": "33.3"
-}
-if you pay with USD / USDT , amount is always equal to usd
+    {
+        "app_id": "xx"
+    }
 ```
 
+
+
+### GetEthOrder
+-  `get`
+-  `/v2alpha/teams/{team_id}/eth_order/{app_id}?pay_method=USDT_ERC20`  
+
+- response:  
+```json
+    {
+            "address": "0x111111111111",
+            "value": "33.3"
+    }
+```
+
+
+
+
+### GetDepositList
+-  `get`
+-  `/v2alpha/teams/{team_id}/deposit_list`  
+
+- response:  
+```json
+    {
+            "deposit_list": [
+                {
+                    app_id : "xxxx",
+                    deposit_time : 1598918400,
+                    app_end_time : 1598918400,
+                    usd : "33.3",
+                    amount : "33.3",
+                    project_name : "feixiang-bonic01",
+                    chart_name : "bonic",
+                    icon_url : "http://www.icon.xxxx",
+                    pay_method : "CREDIT_CARD",
+                    address : "0x2e2121121",
+                    create_time : 1598918400,
+                    app_run_time : 22,
+                    app_total_time : 93,
+                    transaction_hash : "xsajei231231313",
+                    card_id : "cs13214214e"
+                },
+            
+               {
+                    app_id : "xxxx",
+                    deposit_time : 1598918400,
+                    app_end_time : 1598918400,
+                    usd : "33.3",
+                    amount : "33.3",
+                    project_name : "feixiang-bonic01",
+                    chart_name : "bonic",
+                    icon_url : "http://www.icon.xxxx",
+                    pay_method : "CREDIT_CARD",
+                    address : "0x2e2121121",
+                    create_time : 1598918400,
+                    app_run_time : 22,
+                    app_total_time : 93,
+                    transaction_hash : "xsajei231231313",
+                    card_id : "cs13214214e"
+                }
+            ]
+          
+    }
+```
+
+
+
+
+### ExtendApp
+-  `get`
+-  `/v2alpha/teams/{team_id}/extend_app`  
+- if you want to extend the app which paid by credit_card, you should provice card_id
+
+- request:  
+```json
+    {
+        pay_method:"USDT_ERC20";
+        app_id "XXXX";
+        card_id:"";
+    }
+```
+
+- response:  
+```json
+    {
+            "code": 0,
+            "message": "success"
+    }
+```
 
 
