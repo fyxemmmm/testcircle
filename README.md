@@ -76,6 +76,58 @@
 
 
 
+
+### CreateExtendOrder
+-  `post`
+-  `/v2alpha/create_extend_order`  
+
+- request:  
+```json
+    {
+            "app_id": "appidzzzxxkxkx",
+            "period": "3",
+            "pay_method": "CREDIT_CARD"
+    }
+```
+
+- response:  
+```json
+    {
+            "amount": "22.12"
+    }
+```
+
+
+
+
+### ExtendAppAfterCreatingOrder
+-  `post`
+-  `/v2alpha/after_create_extend_order/do_extend_app`  
+
+- request:  
+```json
+    {
+            "app_id": "appidzzzxxkxkx",
+            "period": "3",
+            "pay_method": "CREDIT_CARD",
+            "card_id": "cardidxzzzzzzxxx"
+    }
+```
+
+- response:  
+```json
+    {
+            "code": "22.12",
+            "message": "success"
+    }
+```
+
+
+
+
+
+
+
 ### GetDepositList
 -  `get`
 -  `/v2alpha/teams/{team_id}/deposit_list`  
